@@ -86,9 +86,10 @@ function display(input, target, givenParams) {
     // within the circle by one. We can then determine after the fact for each pixel within
     // how many of the drawn circles it is located, simply by reading any of the color
     // channel values - see fillInTheColors() below.
+    // https://stackoverflow.com/questions/42701218/d3js-and-canvas-setting-alpha-lower-than-0-01
     drawBg(context, "green", size);
     for (let i = 0; i < curves.length; i++) {
-        drawCurve(context, curves[i], "fill", "rgba(255, 255, 255, 0.00390625)", curveJitterValues.slice(i * 3, (i + 1) * 3), size);
+        drawCurve(context, curves[i], "fill", "rgba(255, 255, 255, 0.0040)", curveJitterValues.slice(i * 3, (i + 1) * 3), size);
     }
 
     fillInTheColors(context, colors, params, size);

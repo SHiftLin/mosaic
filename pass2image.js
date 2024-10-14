@@ -13,6 +13,7 @@ function redrawCanvas(password, canvas, params) {
 }
 
 var argv = minimist(process.argv.slice(2), {
+    string: ['password'],
     default: { 'password': '', 'jitter': 3, 'output': './images/test.png' }
 });
 console.log(argv)

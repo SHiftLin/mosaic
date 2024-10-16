@@ -21,8 +21,4 @@ console.log(argv)
 const canvas = createCanvas(256, 256)
 
 redrawCanvas(argv.password, canvas, { jitter: argv.jitter })
-
-const out = fs.createWriteStream(argv.output);
-const stream = canvas.createPNGStream();
-stream.pipe(out);
-out.on('finish', () => console.log('The PNG file was created.'))
+fs.writeFileSync(argv.output, canvas.toBuffer())
